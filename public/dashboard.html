@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <style>
+  
+  </style>
+</head>
+<body>
+
+  <div class="dashboard">
+    <h1>Welcome Back</h1>
+  </div>
+
+  <div class="container">
+    <!-- Main Dashboard Cards -->
+    <div class="card-set" id="mainSet">
+      <div class="card" onclick="showSet('waterTankSet')">
+        <img src="https://img.icons8.com/fluency/96/water.png" alt="Water Tank">
+        <h2>Water Tank</h2>
+        <p>View rooms</p>
+      </div>
+
+      <div class="card" onclick="showSet('leakageSet')">
+        <img src="https://cdn-icons-png.flaticon.com/512/12405/12405831.png" alt="Water Leakage">
+        <h2>Water Leakage</h2>
+        <p>Check leaks</p>
+      </div>
+    </div>
+
+    <!-- Water Tank Rooms -->
+    <div class="card-set" id="waterTankSet" style="display: none;">
+      <div class="card">
+        <img src="https://img.icons8.com/fluency/96/room.png" alt="Room 1">
+        <h2>Room 1</h2>
+        <p>Details</p>
+      </div>
+      <div class="card">
+        <img src="https://img.icons8.com/fluency/96/room.png" alt="Room 2">
+        <h2>Room 2</h2>
+        <p>Details</p>
+      </div>
+      <div class="card">
+        <img src="https://img.icons8.com/fluency/96/room.png" alt="Room 3">
+        <h2>Room 3</h2>
+        <p>Details</p>
+      </div>
+      <div class="card">
+        <img src="https://img.icons8.com/fluency/96/room.png" alt="Room 4">
+        <h2>Room 4</h2>
+        <p>Details</p>
+      </div>
+      <div class="card" onclick="showSet('mainSet')">
+        <img src="https://img.icons8.com/fluency/96/back.png" alt="Back">
+        <h2>Back</h2>
+        <p>Return</p>
+      </div>
+    </div>
+
+    <!-- Water Leakage Subset -->
+    <div class="card-set" id="leakageSet" style="display: none;">
+      <div class="card">
+        <img src="https://img.icons8.com/fluency/96/search.png" alt="Search Leakage">
+        <h2>Search Leakage</h2>
+        <p>Find current leaks</p>
+      </div>
+      <div class="card">
+        <img src="https://img.icons8.com/fluency/96/history.png" alt="Leakage History">
+        <h2>Leakage History</h2>
+        <p>View past leaks</p>
+      </div>
+      <div class="card" onclick="showSet('mainSet')">
+        <img src="https://img.icons8.com/fluency/96/back.png" alt="Back">
+        <h2>Back</h2>
+        <p>Return</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showSet(setId) {
+      document.querySelectorAll('.card-set').forEach(s => s.style.display = 'none');
+      document.getElementById(setId).style.display = 'flex';
+    }
+  </script>
+
+</body>
+</html>
