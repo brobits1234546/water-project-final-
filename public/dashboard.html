@@ -1,57 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <script src="scripts.js"></script>
   <meta charset="UTF-8">
   <title>Dashboard</title>
   <link rel="stylesheet" href="dashboard.css">
-  <style>
-  
-  </style>
 </head>
-<body>
 
+<body>
   <div class="dashboard">
     <h1>Welcome Back</h1>
+    <button id="saveBtn">Save</button>
   </div>
- <!-- this is just for thigi  -->
 
   <div class="container">
-    <!-- Main Dashboard Cards -->
     <div class="card-set" id="mainSet">
       <div class="card" onclick="showSet('waterTankSet')">
         <img src="https://img.icons8.com/fluency/96/water.png" alt="Water Tank">
         <h2>Water Tank</h2>
         <p>View rooms</p>
       </div>
-<!--  -->
       <div class="card" onclick="showSet('limitControlSet')">
-        <img src="https://static.vecteezy.com/system/resources/previews/004/637/478/non_2x/humidity-icon-vector.jpg" alt="Water Tank">
+        <img src="https://static.vecteezy.com/system/resources/previews/004/637/478/non_2x/humidity-icon-vector.jpg"
+          alt="Water Tank">
         <h2>Start Rationing</h2>
         <p>Excute</p>
       </div>
     </div>
 
-    <!-- Water Tank Rooms -->
-    <div class="card-set" id="waterTankSet" style="display: none;">
-      <div class="card">
+    <div class="card-set" id="waterTankSet" style="display:none;">
+      <!-- Room Cards -->
+      <div class="card" data-room="Room 1">
         <img src="https://img.icons8.com/fluency/96/room.png" alt="Room 1">
         <h2>Room 1</h2>
         <p>Details</p>
+        <div class="status-box">
+          <p class="status-text">Not Occupied</p>
+          <label class="checkbox-container">
+            <input type="checkbox" class="occupyCheck"> Occupied
+          </label>
+        </div>
       </div>
-      <div class="card">
+      <div class="card" data-room="Room 2">
         <img src="https://img.icons8.com/fluency/96/room.png" alt="Room 2">
         <h2>Room 2</h2>
         <p>Details</p>
+        <div class="status-box">
+          <p class="status-text">Not Occupied</p>
+          <label class="checkbox-container">
+            <input type="checkbox" class="occupyCheck"> Occupied
+          </label>
+        </div>
       </div>
-      <div class="card">
+      <div class="card" data-room="Room 3">
         <img src="https://img.icons8.com/fluency/96/room.png" alt="Room 3">
         <h2>Room 3</h2>
         <p>Details</p>
+        <div class="status-box">
+          <p class="status-text">Not Occupied</p>
+          <label class="checkbox-container">
+            <input type="checkbox" class="occupyCheck"> Occupied
+          </label>
+        </div>
       </div>
-      <div class="card">
+      <div class="card" data-room="Room 4">
         <img src="https://img.icons8.com/fluency/96/room.png" alt="Room 4">
         <h2>Room 4</h2>
         <p>Details</p>
+        <div class="status-box">
+          <p class="status-text">Not Occupied</p>
+          <label class="checkbox-container">
+            <input type="checkbox" class="occupyCheck"> Occupied
+          </label>
+        </div>
       </div>
       <div class="card" onclick="showSet('mainSet')">
         <img src="https://img.icons8.com/fluency/96/back.png" alt="Back">
@@ -59,44 +81,25 @@
         <p>Return</p>
       </div>
     </div>
-    
-  </div>
 
-  <!-- limit control set -->
-   <div class="card-set" id="limitControlSet" style="display: none;">
-    <div class="card">
-      <div class="checkbox-container">
-    <input type="checkbox" id="enableLimit">
-    <label for="enableLimit">Limited</label>
-</div>
-
-<div class="amount-box" id="amountBox">
-    <input type="number" id="amount" placeholder="Enter amount">
-</div>
-
-<button class="submit-btn">Start</button>
-
-    </div>
-     <div class="card" onclick="showSet('mainSet')">
+    <div class="card-set" id="limitControlSet" style="display:none;">
+      <div class="card">
+        <div class="checkbox-container">
+          <input type="checkbox" id="enableLimit">
+          <label for="enableLimit">Limited</label>
+        </div>
+        <div class="amount-box" id="amountBox">
+          <input type="number" id="amount" placeholder="Enter amount">
+        </div>
+        <button class="submit-btn">Start</button>
+      </div>
+      <div class="card" onclick="showSet('mainSet')">
         <img src="https://img.icons8.com/fluency/96/back.png" alt="Back">
         <h2>Back</h2>
         <p>Return</p>
-     </div>
+      </div>
+    </div>
   </div>
-<script>
-    const checkbox = document.getElementById('enableLimit');
-    const amountBox = document.getElementById('amountBox');
-
-    checkbox.addEventListener('change', () => {
-        amountBox.style.display = checkbox.checked ? 'block' : 'none';
-    });
-</script>
-  <script>
-    function showSet(setId) {
-      document.querySelectorAll('.card-set').forEach(s => s.style.display = 'none');
-      document.getElementById(setId).style.display = 'flex';
-    }
-  </script>
-
 </body>
+
 </html>
