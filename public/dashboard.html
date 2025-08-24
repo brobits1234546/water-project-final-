@@ -23,11 +23,11 @@
         <h2>Water Tank</h2>
         <p>View rooms</p>
       </div>
-
-      <div class="card" onclick="showSet('leakageSet')">
-        <img src="https://cdn-icons-png.flaticon.com/512/12405/12405831.png" alt="Water Leakage">
-        <h2>Water Leakage</h2>
-        <p>Check leaks</p>
+<!--  -->
+      <div class="card" onclick="showSet('limitControlSet')">
+        <img src="https://static.vecteezy.com/system/resources/previews/004/637/478/non_2x/humidity-icon-vector.jpg" alt="Water Tank">
+        <h2>Start Rationing</h2>
+        <p>Excute</p>
       </div>
     </div>
 
@@ -59,27 +59,38 @@
         <p>Return</p>
       </div>
     </div>
+    
+  </div>
 
-    <!-- Water Leakage Subset -->
-    <div class="card-set" id="leakageSet" style="display: none;">
-      <div class="card">
-        <img src="https://img.icons8.com/fluency/96/search.png" alt="Search Leakage">
-        <h2>Search Leakage</h2>
-        <p>Find current leaks</p>
-      </div>
-      <div class="card">
-        <img src="https://img.icons8.com/fluency/96/history.png" alt="Leakage History">
-        <h2>Leakage History</h2>
-        <p>View past leaks</p>
-      </div>
-      <div class="card" onclick="showSet('mainSet')">
+  <!-- limit control set -->
+   <div class="card-set" id="limitControlSet" style="display: none;">
+    <div class="card">
+      <div class="checkbox-container">
+    <input type="checkbox" id="enableLimit">
+    <label for="enableLimit">Limited</label>
+</div>
+
+<div class="amount-box" id="amountBox">
+    <input type="number" id="amount" placeholder="Enter amount">
+</div>
+
+<button class="submit-btn">Start</button>
+
+    </div>
+     <div class="card" onclick="showSet('mainSet')">
         <img src="https://img.icons8.com/fluency/96/back.png" alt="Back">
         <h2>Back</h2>
         <p>Return</p>
-      </div>
-    </div>
+     </div>
   </div>
+<script>
+    const checkbox = document.getElementById('enableLimit');
+    const amountBox = document.getElementById('amountBox');
 
+    checkbox.addEventListener('change', () => {
+        amountBox.style.display = checkbox.checked ? 'block' : 'none';
+    });
+</script>
   <script>
     function showSet(setId) {
       document.querySelectorAll('.card-set').forEach(s => s.style.display = 'none');
