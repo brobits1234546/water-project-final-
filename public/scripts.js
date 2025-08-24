@@ -46,3 +46,38 @@ saveBtn.addEventListener('click', () => {
         saveBtn.style.display = 'none';
     }
 });
+
+
+
+
+
+
+
+
+const express = require('express');
+const session = require('express-session');
+const fs = require('fs');
+const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use(session({
+  secret: 'your_secret_key',
+  resave: false,
+  saveUninitialized: true,
+}));
+
+// Login route
+app.post('/login', (req, res) => {
+  const { username, password } = req.body;
+  const users = JSON.parse(fs.readFileSync('users.json', 'utf8'));
+
+  const user = users.find(u => u.username === username && u.password === password);
+  if (user) {
+    req.session.user = username; // save login session
+    res.redirect('/dashboard');
+  } else {
+    res.send('Invalid credentials');
+  }
+});
